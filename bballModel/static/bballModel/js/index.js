@@ -19,7 +19,7 @@ function resetUI() {
 
 function calculate() {
 
-    stats = ["SOS", "RPI", "PythW", "last10", "top25", "nonConf", "wp", "awp", "awayWP", "owp", "oowp", "pace", "ts", "efg", "ortg", "drtg", "nrtg", "ftr", "tovr", "dm", "orb", "erb", "blkp", "aps", "apa", "apd", "afbp", "ascp", "apip", "3pp", "ftp", "fgp", "aa", "as", "at", "ab", "aorb"];
+    stats = ["SOS", "RPI", "PythW", "last10", "top25", "nonConf", "wp", "awp", "awayWP", "owp", "oowp", "pace", "ts", "efg", "ortg", "drtg", "nrtg", "ftr", "tovr", "dm", "orb", "erb", "blkp", "aps", "apa", "apd", "afbp", "ascp", "apip", "3pp", "ftp", "fgp", "aa", "avgs", "at", "ab", "aorb"];
     weightsDict = {}
 
     var spans = document.getElementsByClassName('range-slider__value');
