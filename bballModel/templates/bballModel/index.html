@@ -4,403 +4,612 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-6">
-            <h1>Create Model</h1><br>
+            <h2 id="createModelTag" onclick="toCreateModel()" style="text-decoration: underline; cursor: pointer;">Create Model</h2><br>
         </div>
-        <div class="col-6 text-right">
-            <button class="btn btn-success" onclick="calculate()">CALCULATE</button>
-            <button onclick="resetUI()" style="margin-left: 40px; margin-right:20px;" class="btn btn-primary">RESET</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <h2>Seasonal Stats</h2>
-
-            <div class="range-slider">
-
-                <h5>Strength of Schedule (SOS)</h5>
-                
-                <input id="testInput" class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A rating of strength of schedule. The rating is denominated in points above/below average, where zero is average</span>
-                </div>
-                
-              </div>
-              
-            <div class="range-slider">
-                
-                <h5>Rating Percentage Index (RPI)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A quantity used to rank sports teams based upon a team's wins and losses and its strength of schedule. It is one of the sports rating systems by which NCAA basketball teams are ranked</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Pythagorean Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">An estimate of what a team's winning percentage "should" be based on points scored and points allowed. Formula is: Games * (Points / (Points + Opponent Points))</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Last 10 Games Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's winning percentage over the last 10 games</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Top 25 Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's winning percentage against top 25 opponents</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Non-Conference Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's winning percentage against non-conference opponents</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's overall win percentage against all opponents</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Adjusted Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Weighted value based on location and result. Road Win: +1.4, Neutral Win: +1.0, Home Win: +0.6, Road Loss: -0.6, Neutral Loss: -1.0, Home Loss: -1.4</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Away Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's win percentage in road games</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Opponent Win Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">The total win percentage of all teams a team has played</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Opponent's Opponents Win %</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">The total win percentage of all opponents of a team's opponents</span>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-lg-4">
-            <h2>Advanced Stats</h2>
-
-            <div class="range-slider">
-                <h5>Pace Factor (PACE)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">An estimate of the number of possessions per team per 40 minutes. Formula is: 40 * (POSS / (0.2 * Minutes Played))</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>True Shooting % (TS)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Measure of Shooting Efficiency that takes into account field goals, 3-point field goals and free throwss. Formula is: Points / (2 * (Field Goal Atttempts + 0.475 * Free Throw Attempts))</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Effective Field Goal % (eFG)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Measure of shooting efficiency adjusted for the fact that a 3-point field goal is worth one more point than a 2-point field goal. Formula is: (Field Goal + 0.5 * 3-Pointers) / Field Goal Attempts</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Offensive Rating (ORtg)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Points Scored Per 100 Possessions. Formula is: 100 * (Points / Possessions)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Defensive Rating (DRtg)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Points Allowed Per 100 Possessions. Formula is: 100 * (Opponent Points / Possessions)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Net Rating (NRtg)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Point Differential Per 100 Possessions. Formula is: 100 * ((Points - Opponent Points) / Possessions)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Free Throw Rate (FTr)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A measure of percentage of shots taken are free throws. Formula is: Free Throw Attempts / Field Goal Attempts</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Turnover Rate (TOVr)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Estimated Turnovers Per 100 Plays. Formula is: 100 * Turnovers / (Field Goal Attempts + 0.475 * Free Throw Attempts + Turnovers)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Defensive Margin</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Measure of defensive in comparison to offensive points scored. Formula is: Points Allowed / (Points Allowed + Points Scored)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Offensive Rebound % (ORB)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Measure of a team's offensive rebounds in comparison to their opponents. Formula is: Offensive Rebounds / (Offensive Rebounds + Opponent's Offensive Rebounds)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Effective Rebound % (ERB)</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Measure of a team's total rebounds in comparison to their opponents. Formula is: Total Rebounds / (Total Rebounds + Opponent Total Rebounds)</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Block Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">Percentage of all opponent field goal attempts are blocked</span>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-lg-4">
-
-            <h2>Games Averages</h2>
-
-            <div class="range-slider">
-                <h5>Average Points Scored</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average points scored per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Points Allowed</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average points allowed per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Point Differential</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average point differential per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Fast Break Points</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average fast break points per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Second Chance Points</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average second game points per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Points in Paint</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average points scored in the paint</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>3-Point Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's 3-point make percentage</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Free Throw Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's free throw make percentage</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Field Goal Percentage</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's shot make percentage from the field</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Assists</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average assists per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Steals</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average steals per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Turnovers</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average turnovers per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Blocks</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average blocks per game</span>
-                </div>
-            </div>
-
-            <div class="range-slider">
-                <h5>Average Offensive Rebounds</h5>
-                <input class="range-slider__range" type="range" value="0" min="0" max="100">
-                <span class="range-slider__value">0</span>
-
-                <div class="tooltip">?
-                    <span class="tooltiptext">A team's average offensive rebounds per game</span>
-                </div>
-            </div>
-
-
+        <div class="col-6 text-left">
+            <h2 id="viewResultsTag" onclick="toViewResults()" style="text-decoration: none; cursor: pointer;">View Results</h2>
         </div>
     </div>
+
+    <div id="createModelDiv">
+        <div class="row">
+            <div class="col-6 text-left">
+                <button onclick="resetUI()" class="btn btn-primary">RESET</button>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-success" onclick="calculate()">CALCULATE</button>
+            </div>
+        </div>
+    
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Seasonal Stats</h2>
+    
+                <div class="range-slider">
+    
+                    <h5>Strength of Schedule (SOS)</h5>
+                    
+                    <input id="testInput" class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A rating of strength of schedule. The rating is denominated in points above/below average, where zero is average</span>
+                    </div>
+                    
+                  </div>
+                  
+                <div class="range-slider">
+                    
+                    <h5>Rating Percentage Index (RPI)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A quantity used to rank sports teams based upon a team's wins and losses and its strength of schedule. It is one of the sports rating systems by which NCAA basketball teams are ranked</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Pythagorean Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">An estimate of what a team's winning percentage "should" be based on points scored and points allowed. Formula is: Games * (Points / (Points + Opponent Points))</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Last 10 Games Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's winning percentage over the last 10 games</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Top 25 Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's winning percentage against top 25 opponents</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Non-Conference Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's winning percentage against non-conference opponents</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's overall win percentage against all opponents</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Adjusted Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Weighted value based on location and result. Road Win: +1.4, Neutral Win: +1.0, Home Win: +0.6, Road Loss: -0.6, Neutral Loss: -1.0, Home Loss: -1.4</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Away Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's win percentage in road games</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Opponent Win Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">The total win percentage of all teams a team has played</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Opponent's Opponents Win %</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">The total win percentage of all opponents of a team's opponents</span>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="col-lg-4">
+                <h2>Advanced Stats</h2>
+    
+                <div class="range-slider">
+                    <h5>Pace Factor (PACE)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">An estimate of the number of possessions per team per 40 minutes. Formula is: 40 * (POSS / (0.2 * Minutes Played))</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>True Shooting % (TS)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Measure of Shooting Efficiency that takes into account field goals, 3-point field goals and free throwss. Formula is: Points / (2 * (Field Goal Atttempts + 0.475 * Free Throw Attempts))</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Effective Field Goal % (eFG)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Measure of shooting efficiency adjusted for the fact that a 3-point field goal is worth one more point than a 2-point field goal. Formula is: (Field Goal + 0.5 * 3-Pointers) / Field Goal Attempts</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Offensive Rating (ORtg)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Points Scored Per 100 Possessions. Formula is: 100 * (Points / Possessions)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Defensive Rating (DRtg)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Points Allowed Per 100 Possessions. Formula is: 100 * (Opponent Points / Possessions)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Net Rating (NRtg)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Point Differential Per 100 Possessions. Formula is: 100 * ((Points - Opponent Points) / Possessions)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Free Throw Rate (FTr)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A measure of percentage of shots taken are free throws. Formula is: Free Throw Attempts / Field Goal Attempts</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Turnover Rate (TOVr)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Estimated Turnovers Per 100 Plays. Formula is: 100 * Turnovers / (Field Goal Attempts + 0.475 * Free Throw Attempts + Turnovers)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Defensive Margin</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Measure of defensive in comparison to offensive points scored. Formula is: Points Allowed / (Points Allowed + Points Scored)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Offensive Rebound % (ORB)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Measure of a team's offensive rebounds in comparison to their opponents. Formula is: Offensive Rebounds / (Offensive Rebounds + Opponent's Offensive Rebounds)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Effective Rebound % (ERB)</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Measure of a team's total rebounds in comparison to their opponents. Formula is: Total Rebounds / (Total Rebounds + Opponent Total Rebounds)</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Block Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Percentage of all opponent field goal attempts are blocked</span>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="col-lg-4">
+    
+                <h2>Games Averages</h2>
+    
+                <div class="range-slider">
+                    <h5>Average Points Scored</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average points scored per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Points Allowed</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average points allowed per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Point Differential</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average point differential per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Fast Break Points</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average fast break points per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Second Chance Points</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average second game points per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Points in Paint</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average points scored in the paint</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>3-Point Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's 3-point make percentage</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Free Throw Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's free throw make percentage</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Field Goal Percentage</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's shot make percentage from the field</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Assists</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average assists per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Steals</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average steals per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Turnovers</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average turnovers per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Blocks</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average blocks per game</span>
+                    </div>
+                </div>
+    
+                <div class="range-slider">
+                    <h5>Average Offensive Rebounds</h5>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                    <span class="range-slider__value">0</span>
+    
+                    <div class="tooltip">?
+                        <span class="tooltiptext">A team's average offensive rebounds per game</span>
+                    </div>
+                </div>
+    
+    
+            </div>
+        </div>
+    </div>
+
+    <div id="viewResultsDiv" style="display:none;">
+        <div class="row">
+            <div class="col">
+                <header class="hero">
+                    <div class="hero-wrap">
+                     <p class="intro" id="intro">NCAA</p>
+                         <h1 id="headline">March Madness</h1>
+                         <p class="year"><i class="fa fa-star"></i> 2020 <i class="fa fa-star"></i></p>
+                     <p>Custom Model</p>
+                   </div>
+                    </header>
+                
+                
+                    <section id="bracket">
+                    <div class="container">
+                    <div class="split split-one">
+                        <div class="round round-one current">
+                            <div class="round-details">Round 1<br/><span class="date">March 16</span></div>
+                            <ul class="matchup">
+                                <li class="team team-top">Duke<span class="score">76</span></li>
+                                <li class="team team-bottom">Virginia<span class="score">82</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">Wake Forest<span class="score">64</span></li>
+                                <li class="team team-bottom">Clemson<span class="score">56</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">North Carolina<span class="score">68</span></li>
+                                <li class="team team-bottom">Florida State<span class="score">54</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">NC State<span class="score">74</span></li>
+                                <li class="team team-bottom">Maryland<span class="score">92</span></li>
+                            </ul>           
+                            <ul class="matchup">
+                                <li class="team team-top">Georgia Tech<span class="score">78</span></li>
+                                <li class="team team-bottom">Georgia<span class="score">80</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">Auburn<span class="score">64</span></li>
+                                <li class="team team-bottom">Florida<span class="score">63</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">Kentucky<span class="score">70</span></li>
+                                <li class="team team-bottom">Alabama<span class="score">59</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">Vanderbilt<span class="score">64</span></li>
+                                <li class="team team-bottom">Gonzaga<span class="score">68</span></li>
+                            </ul>                                       
+                        </div>  <!-- END ROUND ONE -->
+                
+                        <div class="round round-two current">
+                            <div class="round-details">Round 2<br/><span class="date">March 18</span></div>         
+                            <ul class="matchup">
+                                <li class="team team-top">Duke<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">Wake Forest<span class="score">&nbsp;</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>                                       
+                        </div>  <!-- END ROUND TWO -->
+                        
+                        <div class="round round-three">
+                            <div class="round-details">Round 3<br/><span class="date">March 22</span></div>         
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>                                       
+                        </div>  <!-- END ROUND THREE -->        
+                    </div> 
+                
+                <div class="champion">
+                        <div class="semis-l">
+                            <div class="round-details">west semifinals <br/><span class="date">March 26-28</span></div>     
+                            <ul class ="matchup championship">
+                                <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                            </ul>
+                        </div>
+                        <div class="final">
+                            <i class="fa fa-trophy"></i>
+                            <div class="round-details">championship <br/><span class="date">March 30 - Apr. 1</span></div>      
+                            <ul class ="matchup championship">
+                                <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                            </ul>
+                        </div>
+                        <div class="semis-r">       
+                            <div class="round-details">east semifinals <br/><span class="date">March 26-28</span></div>     
+                            <ul class ="matchup championship">
+                                <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                            </ul>
+                        </div>  
+                    </div>
+                
+                
+                    <div class="split split-two">
+                
+                
+                        <div class="round round-three">
+                            <div class="round-details">Round 3<br/><span class="date">March 22</span></div>                     
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>                                       
+                        </div>  <!-- END ROUND THREE -->    
+                
+                        <div class="round round-two">
+                            <div class="round-details">Round 2<br/><span class="date">March 18</span></div>                     
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                                <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                            </ul>                                       
+                        </div>  <!-- END ROUND TWO -->
+                        <div class="round round-one current">
+                            <div class="round-details">Round 1<br/><span class="date">March 16</span></div>
+                            <ul class="matchup">
+                                <li class="team team-top">Minnesota<span class="score">62</span></li>
+                                <li class="team team-bottom">Northwestern<span class="score">54</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">Michigan<span class="score">68</span></li>
+                                <li class="team team-bottom">Iowa<span class="score">66</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">Illinois<span class="score">64</span></li>
+                                <li class="team team-bottom">Wisconsin<span class="score">56</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">Purdue<span class="score">36</span></li>
+                                <li class="team team-bottom">Boise State<span class="score">40</span></li>
+                            </ul>           
+                            <ul class="matchup">
+                                <li class="team team-top">Penn State<span class="score">38</span></li>
+                                <li class="team team-bottom">Indiana<span class="score">44</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">Ohio State<span class="score">52</span></li>
+                                <li class="team team-bottom">VCU<span class="score">80</span></li>
+                            </ul>   
+                            <ul class="matchup">
+                                <li class="team team-top">USC<span class="score">58</span></li>
+                                <li class="team team-bottom">Cal<span class="score">59</span></li>
+                            </ul>
+                            <ul class="matchup">
+                                <li class="team team-top">Virginia Tech<span class="score">74</span></li>
+                                <li class="team team-bottom">Dartmouth<span class="score">111</span></li>
+                            </ul>                                       
+                        </div>  <!-- END ROUND ONE -->                          
+                    </div>
+                    </div>
+                    </section>
+                    <section class="share">
+                            <div class="share-wrap">
+                                <a class="share-icon" href="https://twitter.com/_joebeason"><i class="fa fa-twitter"></i></a>
+                                <a class="share-icon" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="share-icon" href="#"><i class="fa fa-envelope"></i></a>
+                            </div>
+                    </section>
+            </div>
+        </div>
+    </div>
+
+    
 </div>
 
 {% endblock content %}
