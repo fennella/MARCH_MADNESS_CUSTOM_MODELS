@@ -29,8 +29,6 @@ def calcModel_view(request):
             teamScoreDict = addWeightScore(teamScoreDict, teams, int(weightsDict[weight]["weight"]), weightsDict[weight]["stat"])
 
     results = determineWinners(teams, teamScoreDict) 
-
-    #jsonResults = json.dumps(results)
     
     return JsonResponse(results, safe=False)
 
@@ -61,7 +59,7 @@ def determineWinners(teams, teamScoreDict):
 
 def winnerHelper(results, roundNum):
 
-    if roundNum == 6: return results
+    if roundNum == 7: return results
 
     results.append([])
 

@@ -73,7 +73,72 @@ function calcModel(jsonModel) {
 }
 
 function displayResults(data) {
+
+    resetStyling();
     toViewResults();
+
+
+    popBracket(data[0], "round-one", 32);
+    popBracket(data[1], "round-two", 16);
+    popBracket(data[2], "round-three", 8);
+    popBracket(data[3], "round-four", 4);
+    popBracket(data[4], "round-five", 2);
+    popFinals(data);
+    
     console.log(data);
 }
 
+function resetStyling() {
+
+    var allTeams = document.getElementsByClassName("team");
+
+    for (var i = 0; i < allTeams.length; i++) {
+        allTeams[i].style.fontWeight = "normal";
+    }
+
+}
+
+function popBracket(data, className, halfBracket) {
+
+    var rounds = document.getElementsByClassName(className);
+    var l_round = rounds[0];
+    var r_round = rounds[1];
+    
+    for (var i = 0; i < halfBracket; i++) {
+
+        l_round.getElementsByClassName("team")[i].innerHTML = data[i]["name"];
+        r_round.getElementsByClassName("team")[i].innerHTML = data[i + halfBracket]["name"];
+
+        if (i % 2 === 1) {
+            if (data[i]["score"] > data[i - 1]["score"]) {
+                l_round.getElementsByClassName("team")[i].style.fontWeight = "bold";
+            } else {
+                l_round.getElementsByClassName("team")[i - 1].style.fontWeight = "bold";
+            }
+
+            if (data[i + halfBracket]["score"] > data[i + halfBracket - 1]["score"]) {
+                r_round.getElementsByClassName("team")[i].style.fontWeight = "bold";
+            } else {
+                r_round.getElementsByClassName("team")[i - 1].style.fontWeight = "bold";
+            }
+        }
+    }
+}
+
+function popFinals(data) {
+
+    document.getElementById("finals1").innerHTML = data[5][0]["name"];
+    document.getElementById("finals2").innerHTML = data[5][1]["name"];
+
+    if (data[5][0]["score"] > data[5][1]["score"]) {
+        document.getElementById("finals1").style.fontWeight = "bold";
+    } else {
+        document.getElementById("finals2").style.fontWeight = "bold";
+    }
+
+    document.getElementById("championName").innerHTML = "Champion: " + data[6][0]["name"];
+
+
+
+
+}

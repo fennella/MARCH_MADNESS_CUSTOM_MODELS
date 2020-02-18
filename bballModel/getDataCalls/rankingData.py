@@ -8,7 +8,7 @@ def getTop100IDs():
 
     response = requests.get(rankingAPI)
     data = response.json()
-    return createDict(data["rankings"][:32])
+    return createDict(data["rankings"][:64])
     
 def createDict(allData):
 
@@ -18,7 +18,7 @@ def createDict(allData):
 
         team = Team()
         team.teamID = teamData["id"]
-        team.name = teamData["market"] + " " + teamData["name"]
+        team.name = teamData["market"]
         team.owp = teamData["owp"]
         team.oowp = teamData["oowp"]
         team.awp = teamData["awp"]

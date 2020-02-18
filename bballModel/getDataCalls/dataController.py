@@ -15,7 +15,7 @@ def getTeamData():
     teamsDict = playingData.getTeamsStats(teamsDict)
     print("Successfully found teams game data")
 
-    lineNums = [num for num in range(1,33)]
+    lineNums = [num for num in range(1,65)]
     random.shuffle(lineNums)
 
     for i,team in enumerate(teamsDict):
