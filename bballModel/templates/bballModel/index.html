@@ -2,22 +2,30 @@
 {% load static %}
 {% block content %}
 <div class="container-fluid">
-    <div class="row">
+    <div class="row headers">
         <div class="col-6">
-            <h2 id="createModelTag" onclick="toCreateModel()" style="text-decoration: underline; cursor: pointer;">Create Model</h2><br>
+            <h2 class="sectionHead" id="createModelTag" onclick="toCreateModel()" style="text-decoration: underline;">Create Model</h2>
         </div>
         <div class="col-6 text-left">
-            <h2 id="viewResultsTag" onclick="toViewResults()" style="text-decoration: none; cursor: pointer;">View Results</h2>
+            <h2 class="sectionHead" id="viewResultsTag" style="background-color: grey;" onclick="toViewResults()" style="text-decoration: none; cursor: pointer;">View Results</h2>
         </div>
     </div>
 
     <div id="createModelDiv">
         <div class="row">
             <div class="col-6 text-left">
-                <button onclick="resetUI()" class="btn btn-primary">RESET</button>
+
+                <button onclick="resetUI()" class="btn btn-primary modelBtns"> Reset
+                    <i class="fas fa-redo"></i>
+                </button>
+
             </div>
             <div class="col-6 text-right">
-                <button class="btn btn-success" onclick="calculate()">CALCULATE</button>
+
+                <button onclick="calculate()" class="btn btn-success modelBtns"> Calculate
+                    <i class="fas fa-calculator"></i>
+                </button>
+
             </div>
         </div>
     
@@ -428,7 +436,7 @@
                     </header>
                 <h1 id="championName">Champion: </h1>
                     <section id="bracket">
-                    <div class="container">
+                    <div class="container bracketContainer">
                     <div class="split split-one">
                         <div class="round round-one current">
                             <div class="round-details">Round of 64<br/><span class="date">March 16</span></div>
@@ -586,7 +594,7 @@
                         <div class="final current">
                             <i class="fa fa-trophy"></i>
                             <div class="round-details">Championship <br/><span class="date">March 30 - Apr. 1</span></div>      
-                            <ul class ="matchup championship">
+                            <ul class ="matchup" id="championshipTeams">
                                 <li class="team team-top" id="finals1">&nbsp;<span class="vote-count">&nbsp;</span></li>
                                 <li class="team team-bottom" id="finals2">&nbsp;<span class="vote-count">&nbsp;</span></li>
                             </ul>

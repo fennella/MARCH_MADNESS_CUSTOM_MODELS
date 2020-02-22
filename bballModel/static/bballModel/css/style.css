@@ -5,11 +5,43 @@
 body {
   font-family: sans-serif;
   padding: 60px 20px;
+  background: #2c3e50;
 }
 @media (min-width: 600px) {
   body {
     padding: 60px;
   }
+}
+
+#createModelDiv {
+  background-color: white;
+  padding: 30px;
+}
+
+.sectionHead {
+  background-color: white;
+  padding: 10px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+
+.bracketContainer {
+  overflow-x: auto;
+}
+
+/* #createModelDiv button {
+  width: 200px;
+} */
+
+.headers h2 {
+  color: black;
+  margin-bottom: 0px !important;
+}
+
+#championName {
+  color: white;
 }
 
 .range-slider {

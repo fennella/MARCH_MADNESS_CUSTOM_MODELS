@@ -2,9 +2,12 @@ function toViewResults() {
 
     document.getElementById("viewResultsDiv").style.display = "block";
     document.getElementById("viewResultsTag").style.textDecoration = "underline";
+    document.getElementById("viewResultsTag").style.backgroundColor = "white";
+
 
     document.getElementById("createModelDiv").style.display = "none";
     document.getElementById("createModelTag").style.textDecoration = "none";
+    document.getElementById("createModelTag").style.backgroundColor = "grey";
     
 }
 
@@ -12,9 +15,11 @@ function toCreateModel() {
 
     document.getElementById("viewResultsDiv").style.display = "none";
     document.getElementById("viewResultsTag").style.textDecoration = "none";
+    document.getElementById("viewResultsTag").style.backgroundColor = "grey";
 
     document.getElementById("createModelDiv").style.display = "block";
     document.getElementById("createModelTag").style.textDecoration = "underline";
+    document.getElementById("createModelTag").style.backgroundColor = "white";
 
 }
 
